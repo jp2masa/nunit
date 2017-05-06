@@ -622,15 +622,12 @@ void RunDotnetCoreTests(FilePath exePath, DirectoryPath workingDir, string frame
 
 void RunDotnetCoreTests(FilePath exePath, DirectoryPath workingDir, string arguments, string framework, ref List<string> errorDetail)
 {
-    Information("dotnet " + exePath + " " + arguments + " --labels All");
-
     int rc = StartProcess(
         "dotnet",
         new ProcessSettings()
         {
-            Arguments = exePath + " " + arguments + " --labels All",
-            WorkingDirectory = workingDir,
-            RedirectStandardOutput = true
+            Arguments = "run " + exePath + " " + arguments,
+            WorkingDirectory = workingDir
         });
 
     if (rc > 0)
