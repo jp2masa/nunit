@@ -626,7 +626,7 @@ void RunDotnetCoreTests(FilePath exePath, DirectoryPath workingDir, string argum
         "dotnet",
         new ProcessSettings()
         {
-            Arguments = "run " + exePath + " " + arguments,
+            Arguments = exePath + " " + arguments,
             WorkingDirectory = workingDir
         });
 
